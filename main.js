@@ -36,3 +36,39 @@ search.addEventListener('keyup', (e) => {
         }
     })
 })
+
+const filter = document.querySelectorAll('.filter')
+filter.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        if (!btn.classList.contains('filter-selected')) {
+            filter.forEach((otherBtn) => {
+                if (otherBtn !== btn && otherBtn.classList.contains('filter-selected')) {
+                    otherBtn.classList.remove('filter-selected');
+                }
+            });
+            btn.classList.add('filter-selected');
+        }
+        const house_name = btn.querySelector('.house_name').innerText
+
+        const allCharacters = document.querySelectorAll('.character')
+        allCharacters.forEach((char) => {
+            const house = char.querySelector('.house').innerText
+            
+            if(house.includes(house_name)){
+                char.style.display = 'flex'
+            } else{
+                char.style.display = 'none'
+            }
+        })
+    })
+})
+
+document.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('filter')) {
+        const allCharacters = document.querySelectorAll('.character')
+        allCharacters.forEach((char) => {
+            char.style.display = 'flex'
+        })
+    }
+});
+

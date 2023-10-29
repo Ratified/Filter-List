@@ -91,6 +91,29 @@ select {
   }
 }
 
+.filters{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: #02041f;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.filter-selected{
+  background-color: #02041f;
+  color: #fff;
+  border: 2px solid white;
+}
+
 .characters{
     display: grid;
     grid-template-columns: repeat(2, 5fr);
